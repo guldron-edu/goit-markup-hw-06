@@ -1,0 +1,319 @@
+:root {
+  --main-font: 'Roboto', Arial, Helvetica, sans-serif;
+  --secondary-font: 'Open Sans', Arial, Helvetica, sans-serif;
+  --main-fcolor: rgb(85, 82, 82);
+  --t-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: var(--main-font);
+  color: var(--main-fcolor);
+  letter-spacing: -0.02em;
+}
+
+/* img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  } */
+
+.inner {
+  width: 1170px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+.link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.title,
+.topic,
+.text,
+.product,
+.price {
+  margin: 0;
+}
+
+.list,
+.communication-list,
+.management-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.logo::first-letter {
+  color: rgb(26, 188, 156);
+}
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+
+.gallery {
+  text-align: center;
+  padding-bottom: 100px;
+  padding-top: 100px;
+}
+
+.gallery .title {
+  text-transform: uppercase;
+  margin-bottom: 80px;
+}
+
+.gallery .title::after {
+  content: '';
+  display: block;
+  height: 8px;
+  margin: 20px auto 0 auto;
+  width: 165px;
+  padding: 2px 0;
+  background-color: rgb(26, 188, 156);
+  background-clip: content-box;
+  border-top: 2px solid rgb(26, 188, 156);
+  border-bottom: 2px solid rgb(26, 188, 156);
+}
+
+.gallery .list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 0;
+  margin: 0 15px;
+}
+
+.gallery .item {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: center;
+  height: 325px;
+  flex-basis: calc(25% - 23px);
+  background-color: rgb(233, 240, 253);
+  margin-right: 30px;
+  margin-bottom: 30px;
+}
+
+.gallery .link {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  cursor: pointer;
+}
+
+.gallery .item:nth-child(4n) {
+  margin-right: 0;
+}
+
+.gallery .item:nth-last-child(-n + 4) {
+  margin-bottom: 0;
+}
+
+.gallery .hover-buttons {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  left: -5px;
+  width: 235px;
+  height: 260px;
+  padding-top: 80px;
+  padding-bottom: 75px;
+  z-index: 2;
+}
+
+.gallery .wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery .wrapper::after {
+  content: '';
+  position: absolute;
+  left: 10px;
+  width: 235px;
+  height: 260px;
+  background-color: rgba(0, 0, 0, 0.4);
+  transform: translateY(110%);
+  transition: transform 250ms linear;
+}
+
+.gallery .wrapper:hover::after {
+  transform: translateY(10px);
+}
+
+.gallery .wrapper:hover .hover-buttons {
+  transform: translateY(-105%);
+}
+
+.gallery .wrapper:hover .button {
+  animation-name: nc-wrapper;
+  animation-duration: 250ms;
+  animation-delay: 250ms;
+  animation-timing-function: linear;
+  animation-fill-mode: backwards;
+}
+
+.gallery .item-buttons {
+  height: 50px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+.gallery .item-buttons:nth-last-child(-n + 2) {
+  margin-right: 0;
+}
+.gallery .item-buttons:last-child {
+  margin-bottom: 0;
+}
+
+.gallery .button {
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  border: none;
+  background-color: transparent;
+  background-position: center;
+  padding: 0;
+  margin: 0;
+
+  cursor: pointer;
+  border: 1px solid rgb(252, 252, 252);
+
+  transform: rotateY(0);
+  transition: transform 400ms linear;
+}
+
+.gallery .hover-buttons .arrows {
+  background-image: url('../images/arrows.png');
+}
+
+.gallery .hover-buttons .heart {
+  background-image: url('../images/heart.png');
+}
+
+.gallery .hover-buttons .clock {
+  background-image: url('../images/clock.png');
+}
+
+.gallery .hover-buttons .cart {
+  display: flex;
+  align-items: center;
+  width: 165px;
+  height: 50px;
+  font-size: 14px;
+  font-family: var(--secondary-font);
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  line-height: 2.286;
+  background-color: rgb(50, 50, 50);
+  transform: rotateX(0);
+  transition: transform 400ms linear;
+}
+
+.gallery .hover-buttons .cart::before {
+  content: '';
+  height: 50px;
+  flex-basis: 50px;
+  background-image: url('../images/cart.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.gallery .item-buttons:hover .button {
+  border: none;
+  background-color: rgb(26, 188, 156);
+  transform: rotateY(360deg);
+}
+
+.gallery .item-buttons:hover .cart {
+  border: none;
+  background-color: rgb(26, 188, 156);
+  transform: rotateX(360deg);
+}
+.gallery .item:hover .product {
+  animation-name: label-move;
+  animation-duration: 250ms;
+  animation-timing-function: var(--t-function);
+  animation-fill-mode: forwards;
+}
+
+.gallery .link:focus .product {
+  animation-name: label-move;
+  animation-duration: 250ms;
+  animation-timing-function: var(--t-function);
+  animation-fill-mode: forwards;
+}
+
+.gallery .link:focus .price {
+  background: rgb(127, 217, 199);
+}
+
+.gallery .item:hover .price {
+  background: rgb(127, 217, 199);
+}
+
+.gallery .product {
+  display: flex;
+  padding-left: 15px;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 900;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  line-height: 1.778;
+  flex-basis: 80%;
+  background-color: rgb(50, 50, 50);
+}
+
+.gallery .price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 900;
+  color: rgb(255, 255, 255);
+  line-height: 1.778;
+  flex-basis: 20%;
+  background-color: rgb(140, 140, 140);
+  padding: 0;
+}
+
+@keyframes label-move {
+  0% {
+    padding-left: 15px;
+    background-color: rgb(50, 50, 50);
+  }
+
+  100% {
+    padding-left: 40px;
+    background-color: rgb(26, 188, 156);
+  }
+}
+
+@keyframes nc-wrapper {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

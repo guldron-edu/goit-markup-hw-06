@@ -364,6 +364,21 @@ body {
   justify-content: center;
 }
 
+.new-collection .wrapper::after {
+  content: '';
+  position: absolute;
+  width: 235px;
+  height: 260px;
+  left: 45px;
+  transform: translateY(110%);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.new-collection .wrapper:hover::after {
+  transform: translateY(10px);
+  transition: transform 250ms linear;
+}
+
 .new-collection .link {
   cursor: pointer;
   position: absolute;
@@ -377,29 +392,32 @@ body {
   margin-right: 0;
 }
 
+.wrapper {
+  position: relative;
+}
+
 .new-collection .hover-buttons {
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
-  position: absolute;
-  transform: translateY(0);
   left: 30px;
+  top: 0;
   width: 235px;
   height: 260px;
-  background-color: rgba(0, 0, 0, 0.4);
   padding-top: 80px;
   padding-bottom: 75px;
-  transition: transform 250ms linear;
-  /* perspective: 600px; */
+  z-index: 2;
+  opacity: 0;
 }
 
-.wrapper {
-  position: relative;
-}
 .new-collection .wrapper:hover .hover-buttons {
-  transform: translateY(-120%);
+  animation-name: nc-wrapper;
+  animation-duration: 400ms;
+  animation-timing-function: linear;
+  animation-delay: 250ms;
+  animation-fill-mode: forwards;
 }
 
 .new-collection .wrapper:hover .button {
@@ -476,10 +494,7 @@ body {
 
 .new-collection .item-buttons:hover .button {
   border: none;
-  /* animation-name: turn;
-  animation-duration: 250ms;
-  animation-fill-mode: forwards;
-  animation-timing-function: var(--t-function); */
+
   background-color: rgb(26, 188, 156);
   transform: rotateY(360deg);
 }
@@ -488,10 +503,6 @@ body {
   border: none;
   background-color: rgb(26, 188, 156);
   transform: rotateX(360deg);
-  /* animation-name: turn-cart;
-  animation-duration: 500ms;
-  animation-fill-mode: forwards;
-  animation-timing-function: var(--t-function); */
 }
 
 .new-collection .item:hover .product {
@@ -609,21 +620,34 @@ body {
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
-  position: absolute;
-  transform: translateY(0);
   left: -5px;
   width: 235px;
   height: 260px;
-  background-color: rgba(0, 0, 0, 0.4);
   padding-top: 80px;
   padding-bottom: 75px;
-  transition: transform 250ms linear;
+  z-index: 2;
 }
 
 .gallery .wrapper {
   position: relative;
   overflow: hidden;
 }
+
+.gallery .wrapper::after {
+  content: '';
+  position: absolute;
+  left: 10px;
+  width: 235px;
+  height: 260px;
+  background-color: rgba(0, 0, 0, 0.4);
+  transform: translateY(110%);
+  transition: transform 250ms linear;
+}
+
+.gallery .wrapper:hover::after {
+  transform: translateY(10px);
+}
+
 .gallery .wrapper:hover .hover-buttons {
   transform: translateY(-105%);
 }
@@ -705,21 +729,12 @@ body {
   border: none;
   background-color: rgb(26, 188, 156);
   transform: rotateY(360deg);
-  /* animation-name: turn;
-  animation-duration: 400ms;
-  animation-fill-mode: forwards;
-  animation-timing-function: var(--t-function); */
 }
 
 .gallery .item-buttons:hover .cart {
-  /* background-color: #1abc9c; */
   border: none;
   background-color: rgb(26, 188, 156);
   transform: rotateX(360deg);
-  /* animation-name: turn-cart;
-  animation-duration: 500ms;
-  animation-fill-mode: forwards;
-  animation-timing-function: var(--t-function); */
 }
 .gallery .item:hover .product {
   animation-name: label-move;
