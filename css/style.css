@@ -620,11 +620,13 @@ body {
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
+  top: 0;
   left: -5px;
   width: 235px;
   height: 260px;
   padding-top: 80px;
   padding-bottom: 75px;
+  opacity: 0;
   z-index: 2;
 }
 
@@ -649,7 +651,11 @@ body {
 }
 
 .gallery .wrapper:hover .hover-buttons {
-  transform: translateY(-105%);
+  animation-name: nc-wrapper;
+  animation-duration: 400ms;
+  animation-timing-function: linear;
+  animation-delay: 250ms;
+  animation-fill-mode: forwards;
 }
 
 .gallery .wrapper:hover .button {
